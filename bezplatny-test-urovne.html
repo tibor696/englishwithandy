@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bezplatný test úrovne | Andrea Horčíková</title>
+  <meta name="description" content="Bezplatný orientačný test úrovne angličtiny pre študentov Andrey Horčíkovej.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <section class="section test-hero">
+      <div class="shell test-shell">
+        <a class="back-link" href="index.html">Späť na hlavnú stránku</a>
+        <img class="brand-logo test-logo" src="logo1.png" alt="You alright?!">
+        <h1>Bezplatný test úrovne</h1>
+        <p class="lead">Vyplňte krátky orientačný test a zistite, odkiaľ sa spolu môžeme odraziť. Výsledok slúži ako prvý odhad, presnú úroveň doladíme na úvodnej konzultácii.</p>
+      </div>
+    </section>
+
+    <section class="section test-section">
+      <div class="shell test-shell">
+        <form class="level-test" id="level-test">
+          <div class="test-card">
+            <h2>Gramatika a slovná zásoba</h2>
+            <p>Vyberte vždy jednu odpoveď.</p>
+
+            <fieldset>
+              <legend>1. She ___ from Canada.</legend>
+              <label><input type="radio" name="q1" value="0"> are</label>
+              <label><input type="radio" name="q1" value="1"> is</label>
+              <label><input type="radio" name="q1" value="0"> be</label>
+            </fieldset>
+
+            <fieldset>
+              <legend>2. I usually ___ coffee in the morning.</legend>
+              <label><input type="radio" name="q2" value="1"> drink</label>
+              <label><input type="radio" name="q2" value="0"> am drinking</label>
+              <label><input type="radio" name="q2" value="0"> drinks</label>
+            </fieldset>
+
+            <fieldset>
+              <legend>3. We ___ to London last summer.</legend>
+              <label><input type="radio" name="q3" value="0"> go</label>
+              <label><input type="radio" name="q3" value="1"> went</label>
+              <label><input type="radio" name="q3" value="0"> have go</label>
+            </fieldset>
+
+            <fieldset>
+              <legend>4. There isn't ___ milk left.</legend>
+              <label><input type="radio" name="q4" value="0"> many</label>
+              <label><input type="radio" name="q4" value="1"> much</label>
+              <label><input type="radio" name="q4" value="0"> few</label>
+            </fieldset>
+
+            <fieldset>
+              <legend>5. If I had more time, I ___ Spanish.</legend>
+              <label><input type="radio" name="q5" value="0"> learn</label>
+              <label><input type="radio" name="q5" value="0"> will learn</label>
+              <label><input type="radio" name="q5" value="1"> would learn</label>
+            </fieldset>
+
+            <fieldset>
+              <legend>6. The report ___ by Friday.</legend>
+              <label><input type="radio" name="q6" value="0"> must finish</label>
+              <label><input type="radio" name="q6" value="1"> must be finished</label>
+              <label><input type="radio" name="q6" value="0"> must finished</label>
+            </fieldset>
+
+            <fieldset>
+              <legend>7. I have lived here ___ 2020.</legend>
+              <label><input type="radio" name="q7" value="1"> since</label>
+              <label><input type="radio" name="q7" value="0"> for</label>
+              <label><input type="radio" name="q7" value="0"> during</label>
+            </fieldset>
+
+            <fieldset>
+              <legend>8. She suggested ___ earlier.</legend>
+              <label><input type="radio" name="q8" value="0"> to leave</label>
+              <label><input type="radio" name="q8" value="1"> leaving</label>
+              <label><input type="radio" name="q8" value="0"> leave</label>
+            </fieldset>
+
+            <fieldset>
+              <legend>9. I wish I ___ more confident when speaking.</legend>
+              <label><input type="radio" name="q9" value="0"> am</label>
+              <label><input type="radio" name="q9" value="1"> were</label>
+              <label><input type="radio" name="q9" value="0"> will be</label>
+            </fieldset>
+
+            <fieldset>
+              <legend>10. The meeting was put ___ until next week.</legend>
+              <label><input type="radio" name="q10" value="0"> out</label>
+              <label><input type="radio" name="q10" value="1"> off</label>
+              <label><input type="radio" name="q10" value="0"> away</label>
+            </fieldset>
+
+            <fieldset>
+              <legend>11. By the time we arrived, the film ___.</legend>
+              <label><input type="radio" name="q11" value="0"> started</label>
+              <label><input type="radio" name="q11" value="0"> has started</label>
+              <label><input type="radio" name="q11" value="1"> had started</label>
+            </fieldset>
+
+            <fieldset>
+              <legend>12. The proposal is still ___ review.</legend>
+              <label><input type="radio" name="q12" value="1"> under</label>
+              <label><input type="radio" name="q12" value="0"> below</label>
+              <label><input type="radio" name="q12" value="0"> beneath</label>
+            </fieldset>
+          </div>
+
+          <div class="test-actions">
+            <button class="button primary" type="submit">Vyhodnotiť test</button>
+            <a class="button secondary" href="index.html#kalendar">Kontaktovať Andreu</a>
+          </div>
+
+          <div class="test-result" id="test-result" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const form = document.querySelector("#level-test");
+    const result = document.querySelector("#test-result");
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const data = new FormData(form);
+      let score = 0;
+
+      for (let index = 1; index <= 12; index += 1) {
+        score += Number(data.get(`q${index}`) || 0);
+      }
+
+      let level = "A1";
+      let message = "Začíname pekne od základov: istota vo vetách, otázkach a každodenných situáciách.";
+
+      if (score >= 4 && score <= 6) {
+        level = "A2";
+        message = "Základy už máte, teraz sa oplatí rozšíriť slovnú zásobu a viac rozprávať.";
+      }
+
+      if (score >= 7 && score <= 9) {
+        level = "B1";
+        message = "Máte dobrý základ na samostatnejšiu komunikáciu. Spolu môžeme posilniť plynulosť a presnosť.";
+      }
+
+      if (score >= 10) {
+        level = "B2+";
+        message = "Vaša úroveň je pokročilejšia. Hodiny môžu cieliť na prirodzenosť, nuansy a sebavedomý prejav.";
+      }
+
+      result.innerHTML = `<strong>Orientačný výsledok: ${level}</strong><span>${score} / 12 bodov</span><p>${message}</p>`;
+      result.classList.add("is-visible");
+      result.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+  </script>
+</body>
+</html>

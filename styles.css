@@ -1,0 +1,744 @@
+:root {
+  --bg: #deeeff;
+  --card: #ffffff;
+  --ink: #1e3063;
+  --heading: #091c53;
+  --teal: #139ea3;
+  --teal-light: #d1f8fa;
+  --gray: #565251;
+  --line: #b7dee0;
+  --button-blue: #0540ad;
+  --shadow: 0 18px 44px rgba(9, 28, 83, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Instrument Sans", Arial, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  font-weight: 500;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.section {
+  padding: 88px 22px;
+  background: var(--card);
+}
+
+.shell {
+  width: min(1032px, 100%);
+  margin: 0 auto;
+}
+
+.narrow {
+  width: min(920px, 100%);
+}
+
+.hero {
+  min-height: 100vh;
+  display: grid;
+  align-items: center;
+  padding-top: 64px;
+  background: white;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 44px;
+  align-items: center;
+}
+
+.hero-copy {
+  display: grid;
+  justify-items: start;
+}
+
+.hero-centered {
+  max-width: 860px;
+}
+
+.hero-centered .hero-copy {
+  justify-items: start;
+  text-align: left;
+}
+
+.brand-logo {
+  width: 390px;
+  margin: 0 0 32px;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+  overflow-wrap: break-word;
+}
+
+h1 {
+  color: var(--heading);
+  font-size: 48px;
+  line-height: 1.1;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+h2 {
+  color: var(--gray);
+  font-size: 40px;
+  line-height: 1.18;
+  font-weight: 600;
+  margin-bottom: 26px;
+}
+
+h3 {
+  color: var(--heading);
+  font-size: 30px;
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+h4 {
+  color: inherit;
+  font-size: 22px;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+p + p {
+  margin-top: 22px;
+}
+
+.accent,
+.name {
+  color: var(--teal);
+}
+
+.eyebrow,
+.name {
+  font-size: 30px;
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+.eyebrow {
+  color: var(--gray);
+}
+
+.lead {
+  max-width: 760px;
+  font-size: 22px;
+  margin-top: 30px;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 34px;
+}
+
+.button {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-weight: 600;
+  line-height: 1.25;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(9, 28, 83, 0.12);
+}
+
+.primary {
+  background: var(--teal);
+  color: white;
+}
+
+.secondary {
+  background: white;
+  color: var(--gray);
+  box-shadow: inset 0 0 0 1px var(--gray);
+}
+
+.dark-button {
+  background: var(--gray);
+  color: white;
+}
+
+.hero-image {
+  justify-self: center;
+  width: min(620px, 100%);
+}
+
+.hero-image img {
+  border-radius: 8px;
+  margin: 0 auto;
+}
+
+.section.intro-visual {
+  background: white;
+  padding-top: 36px;
+  padding-bottom: 76px;
+}
+
+.section.about-section {
+  background: var(--teal);
+  color: white;
+}
+
+.section.about-section h2,
+.section.about-section .accent {
+  color: white;
+}
+
+.section.why-section {
+  background: white;
+}
+
+.section#referencie {
+  background: white;
+}
+
+.section#materialy {
+  background-color: #f2f2f2;
+}
+
+.section-heading {
+  margin-bottom: 34px;
+}
+
+.section-heading p {
+  color: var(--teal);
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.compact {
+  margin-top: 60px;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.side-card {
+  position: relative;
+  background: white;
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  padding: 24px 24px 24px 34px;
+  min-height: 188px;
+  box-shadow: 8px 8px 0 rgba(19, 158, 163, 0.12);
+}
+
+.side-card::before {
+  content: "";
+  position: absolute;
+  inset: -2px auto -2px -2px;
+  width: 8px;
+  background: var(--teal);
+  border-radius: 8px 0 0 8px;
+}
+
+.side-card p {
+  margin-top: 12px;
+}
+
+.section.quote-section {
+  background: #f2f2f2;
+}
+
+blockquote {
+  position: relative;
+  margin: 0;
+  padding-left: 28px;
+  border-left: 4px solid var(--teal);
+}
+
+blockquote p {
+  color: var(--heading);
+  font-size: 26px;
+  line-height: 1.35;
+  font-weight: 600;
+}
+
+blockquote cite {
+  display: block;
+  margin-top: 22px;
+  font-style: normal;
+  font-size: 20px;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.price-card,
+.info-card,
+.testimonial,
+.notice {
+  border-radius: 8px;
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+
+.price-card {
+  min-height: 220px;
+}
+
+.price-card h4 + p,
+.price-card p + p {
+  margin-top: 10px;
+}
+
+.price-card hr {
+  border: 0;
+  height: 1px;
+  margin: 24px 0;
+  background: currentColor;
+  opacity: 0.28;
+}
+
+.dark {
+  background: var(--gray);
+  color: white;
+}
+
+.teal {
+  background: var(--teal);
+  color: white;
+}
+
+.light {
+  background: white;
+  color: var(--teal);
+}
+
+.light h4 {
+  color: var(--ink);
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.info-card p {
+  margin-top: 12px;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.testimonial {
+  position: relative;
+  background: white;
+  border: 2px solid var(--line);
+  box-shadow: 7px 7px 0 rgba(19, 158, 163, 0.12);
+}
+
+.testimonial::before,
+.testimonial::after {
+  position: absolute;
+  color: var(--teal);
+  font-size: 42px;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.testimonial::before {
+  content: "“";
+  top: -16px;
+  left: 14px;
+}
+
+.testimonial::after {
+  content: "”";
+  right: 14px;
+  bottom: -24px;
+}
+
+.testimonial strong {
+  display: block;
+  color: var(--teal);
+  margin-top: 22px;
+}
+
+.contact-section {
+  background: white;
+}
+
+.test-hero {
+  background: white;
+  padding-bottom: 58px;
+}
+
+.test-section {
+  background: #f2f2f2;
+  padding-top: 64px;
+}
+
+.test-shell {
+  width: min(900px, 100%);
+}
+
+.back-link {
+  display: inline-flex;
+  margin-bottom: 34px;
+  color: var(--gray);
+  font-weight: 600;
+}
+
+.back-link:hover {
+  color: var(--teal);
+}
+
+.test-logo {
+  width: 300px;
+}
+
+.level-test {
+  display: grid;
+  gap: 24px;
+}
+
+.test-card {
+  background: white;
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  padding: 34px;
+  box-shadow: 8px 8px 0 rgba(19, 158, 163, 0.12);
+}
+
+.test-card h2 {
+  color: var(--teal);
+}
+
+.test-card > p {
+  color: var(--gray);
+  margin-bottom: 24px;
+}
+
+.test-card fieldset {
+  border: 0;
+  border-top: 1px solid rgba(30, 48, 99, 0.14);
+  margin: 0;
+  padding: 22px 0 0;
+}
+
+.test-card fieldset + fieldset {
+  margin-top: 22px;
+}
+
+.test-card legend {
+  color: var(--heading);
+  font-weight: 700;
+  padding: 0 0 12px;
+}
+
+.test-card label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 38px;
+  color: var(--ink);
+}
+
+.test-card input {
+  accent-color: var(--teal);
+  inline-size: 18px;
+  block-size: 18px;
+}
+
+.test-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.test-result {
+  display: none;
+  background: var(--teal);
+  color: white;
+  border-radius: 8px;
+  padding: 26px;
+  box-shadow: var(--shadow);
+}
+
+.test-result.is-visible {
+  display: block;
+}
+
+.test-result strong,
+.test-result span {
+  display: block;
+}
+
+.test-result span {
+  margin-top: 6px;
+  opacity: 0.9;
+}
+
+.test-result p {
+  margin-top: 18px;
+}
+
+.notice {
+  background: var(--teal);
+  color: white;
+  margin-bottom: 26px;
+}
+
+.reveal {
+  animation: rise 780ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.delay-1 {
+  animation-delay: 120ms;
+}
+
+.delay-2 {
+  animation-delay: 220ms;
+}
+
+.delay-3 {
+  animation-delay: 320ms;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 880px) {
+  .hero-grid:not(.hero-centered) {
+    grid-template-columns: 1fr 0.84fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .section {
+    padding: 58px 18px;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: 42px;
+    padding-bottom: 42px;
+  }
+
+  .hero-grid {
+    gap: 26px;
+  }
+
+  .brand-logo {
+    width: min(320px, 90vw);
+    margin-bottom: 26px;
+  }
+
+  h1 {
+    font-size: 36px;
+    margin-bottom: 18px;
+  }
+
+  h2 {
+    font-size: 31px;
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    font-size: 24px;
+  }
+
+  h4 {
+    font-size: 20px;
+  }
+
+  .eyebrow,
+  .name {
+    font-size: 23px;
+  }
+
+  .lead,
+  blockquote cite {
+    font-size: 18px;
+  }
+
+  blockquote p {
+    font-size: 22px;
+  }
+
+  .lead {
+    margin-top: 24px;
+  }
+
+  .intro-visual {
+    padding-top: 8px;
+    padding-bottom: 48px;
+  }
+
+  .hero-image {
+    width: min(560px, 100%);
+  }
+
+  .section-heading {
+    margin-bottom: 26px;
+  }
+
+  .compact {
+    margin-top: 46px;
+  }
+
+  .feature-grid,
+  .pricing-grid,
+  .info-grid,
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .button-row {
+    width: 100%;
+    gap: 10px;
+    margin-top: 28px;
+  }
+
+  .button {
+    width: 100%;
+    min-height: 48px;
+    white-space: normal;
+    text-align: center;
+    border-radius: 8px;
+  }
+
+  .side-card {
+    min-height: 0;
+    padding: 22px 18px 22px 28px;
+    box-shadow: 5px 5px 0 rgba(19, 158, 163, 0.12);
+  }
+
+  .price-card,
+  .info-card,
+  .testimonial,
+  .notice,
+  .test-card,
+  .test-result {
+    padding: 22px;
+  }
+
+  .price-card {
+    min-height: 0;
+  }
+
+  .testimonial {
+    box-shadow: 5px 5px 0 rgba(19, 158, 163, 0.12);
+  }
+
+  blockquote {
+    padding-left: 20px;
+  }
+
+  .test-hero {
+    padding-bottom: 46px;
+  }
+
+  .test-section {
+    padding-top: 48px;
+  }
+
+  .test-logo {
+    width: min(260px, 88vw);
+  }
+
+  .back-link {
+    margin-bottom: 26px;
+  }
+
+  .test-card {
+    box-shadow: 5px 5px 0 rgba(19, 158, 163, 0.12);
+  }
+
+  .test-actions {
+    width: 100%;
+  }
+
+}
+
+@media (max-width: 430px) {
+  .section {
+    padding: 48px 16px;
+  }
+
+  .hero {
+    padding-top: 34px;
+    padding-bottom: 34px;
+  }
+
+  .brand-logo {
+    width: min(290px, 90vw);
+  }
+
+  h1 {
+    font-size: 33px;
+  }
+
+  h2 {
+    font-size: 29px;
+  }
+
+  h3 {
+    font-size: 22px;
+  }
+
+  .eyebrow,
+  .name {
+    font-size: 21px;
+  }
+
+  .lead,
+  blockquote cite,
+  .section-heading p {
+    font-size: 17px;
+  }
+
+}
