@@ -1,0 +1,7 @@
+{
+  "version": "2.9.7",
+  "name": "example/docker-php",
+  "require": {
+    "phpmailer/phpmailer": "^7.0.0"
+  }
+}
