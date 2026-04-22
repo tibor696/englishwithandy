@@ -283,9 +283,12 @@
                 }
             })
             .catch((e) => {
+                
+                console.log(e);
+
                 Swal.fire({
                         title: 'Chyba!',
-                        text: 'Chyba pri odosielaní:' + e,
+                        text: 'Chyba pri odosielaní',
                         icon: 'error'
                     });
             })
