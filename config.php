@@ -3,7 +3,7 @@ return [
     'smtp_host' => "smtp.gmail.com",
     'smtp_port' => 465,
     'smtp_user' => "kavecansky@gmail.com",
-    'smtp_pass' => "huhr bdza ioyc vlej",
+    'smtp_pass' => "",
 
     'sender_email' => "kavecansky@gmail.com", // email a meno odosielatela
     'sender_name' => "Kontaktný formulár",
