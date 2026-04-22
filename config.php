@@ -1,7 +1,7 @@
 <?php
 return [
     'smtp_host' => "smtp.gmail.com",
-    'smtp_port' => 587,
+    'smtp_port' => 465,
     'smtp_user' => "tibortestovaci5@gmail.com",
     'smtp_pass' => "dlyu wmmf zzhr mkfz",
 
