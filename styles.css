@@ -559,18 +559,15 @@ blockquote cite {
 
 .test-card fieldset {
   border: 0;
-  border-top: 1px solid rgba(30, 48, 99, 0.14);
   margin: 0;
-}
-
-.test-card fieldset + fieldset {
-  margin-top: 22px;
 }
 
 .test-card legend {
   color: var(--heading);
   font-weight: 700;
   padding: 0 0 12px;
+  border-bottom: 1px solid rgba(30, 48, 99, 0.14);
+  width: 100%;
 }
 
 .test-card label {
