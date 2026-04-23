@@ -1,3 +1,10 @@
+<?php
+try {
+    $config = require 'config.php';
+  } catch (Exception $e) {
+      $error = $e;
+  }
+?>
 <!DOCTYPE html>
 <html lang="sk">
 <head>
@@ -40,7 +47,7 @@
         <section class="section hero" id="uvod">
             <div class="shell hero-grid hero-centered">
                 <div class="hero-copy reveal">
-                    <img class="brand-logo" src="logo1.png" alt="You alright?!">
+                    <img class="brand-logo" src="obr3.png" alt="Don't just learn speak">
                     <h1>Don't just learn. Speak!</h1>
                     <p class="eyebrow">Lektorka anglického jazyka</p>
                     <p class="name">Andrea Horčíková</p>
@@ -224,7 +231,7 @@
                         <textarea id="contact-message" name="message" rows="6" required></textarea>
                     </div>
                     <div class="form-field">
-                        <div class="g-recaptcha" data-sitekey="reCAPTCHA_site_key" data-callback="capcha_filled" data-expired-callback="capcha_expired"></div>
+                        <div class="g-recaptcha" data-sitekey="<?php echo($config['reCaptchaApiKey']);?>" data-callback="capcha_filled" data-expired-callback="capcha_expired"></div>
                     </div>
                     <button class="button primary" name="submit" id="submit">Odoslať správu</button>
                 </form>

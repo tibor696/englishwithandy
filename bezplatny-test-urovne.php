@@ -29,7 +29,7 @@
   <main>
     <section class="section test-hero">
       <div class="shell test-shell">
-        <a class="back-link" href="index.html">Späť na hlavnú stránku</a>
+        <a class="back-link" href="index.php">Späť na hlavnú stránku</a>
         <img class="brand-logo test-logo" src="logo1.png" alt="You alright?!">
         <h1>Bezplatný test úrovne</h1>
         <p class="lead">Vyplňte krátky orientačný test a zistite, odkiaľ sa spolu môžeme odraziť. Výsledok slúži ako prvý odhad, presnú úroveň doladíme na úvodnej konzultácii.</p>
@@ -38,65 +38,67 @@
 
     <section class="section test-section">
       <div class="shell test-shell">
+      <div class="test-card">  
         <form class="level-test" id="level-test" action="" method="post">
-          <div class="test-card">
-
-          <?php
-            try {
-              if(!is_null($test)) {
-                echo('<h2>'. $test->nazov . '</h2>');
-                echo('<p>Vyberte vždy jednu odpoveď.</p>');
-              
-                for ($i = 0; $i <= count($test->otazky) - 1 ; $i++) {
-                  echo('<fieldset>');
+            
+            <?php
+              try {
+                if(!is_null($test)) {
+                  echo('<h2>'. $test->nazov . '</h2>');
+                  echo('<p>Vyberte vždy jednu odpoveď.</p>');
                 
-                  echo('<legend>'. $i + 1 . '. ' . $test->otazky[$i]->otazka . '</legend>');
+                  for ($i = 0; $i <= count($test->otazky) - 1 ; $i++) {
+                    echo('<fieldset>');
                   
-                  for ($j = 0; $j <= count($test->otazky[$i]->odpovede) - 1; $j++) {
-                    echo('<label><input type="radio" name="q' . $i . '" value="' . $j . '"');
+                    echo('<legend>'. $i + 1 . '. ' . $test->otazky[$i]->otazka . '</legend>');
                     
-                    if($j == 0)
-                       echo('required');
-                    
-                    echo('> ' . $test->otazky[$i]->odpovede[$j]->odpoved . '</label>');
+                    for ($j = 0; $j <= count($test->otazky[$i]->odpovede) - 1; $j++) {
+                      echo('<label><input type="radio" name="q' . $i . '" value="' . $j . '"');
+                      
+                      if($j == 0)
+                        echo('required');
+                      
+                      echo('> ' . $test->otazky[$i]->odpovede[$j]->odpoved . '</label>');
+                    }
+
+                    echo('</fieldset>');
                   }
 
-                  echo('</fieldset>');
+                } else {
+                  echo("Chyba pri načítavaní testu.");
                 }
-
-              } else {
-                echo("Chyba pri načítavaní testu.");
+              } catch (Exception $e) {
+                $error = $e;
               }
-            } catch (Exception $e) {
-              $error = $e;
-            }
-          
-            if(!is_null($error)) {
-              echo ("Chyba: " + $error);
-            }
-          ?>
+            
+              if(!is_null($error)) {
+                echo ("Chyba: " + $error);
+              }
+            ?>
 
-            <div class="form-field">
-                <label for="contact-name">Meno</label>
-                <input id="contact-name" name="name" type="text" autocomplete="name" required>
+              <div class="form-field">
+                  <label for="contact-name">Meno</label>
+                  <input id="contact-name" name="name" type="text" autocomplete="name" required>
+              </div>
+
+              <div class="form-field">
+                  <label for="contact-email">Email</label>
+                  <input id="contact-email" name="email" type="email" autocomplete="email" required>
+              </div>
+            
+              <div class="form-field">
+                  <div class="g-recaptcha" data-sitekey="<?php echo($config['reCaptchaApiKey']);?>" data-callback="capcha_filled" data-expired-callback="capcha_expired"></div>
+              </div>
+
+            
+
+            <div class="test-actions">
+              <button class="button primary" type="submit" id="submit">Vyhodnotiť test</button>
+              <a class="button secondary" href="index.php#kalendar">Kontaktovať Andreu</a>
             </div>
 
-            <div class="form-field">
-                <label for="contact-email">Email</label>
-                <input id="contact-email" name="email" type="email" autocomplete="email" required>
-            </div>
-          </div>
-          <div class="form-field">
-              <div class="g-recaptcha" data-sitekey="reCAPTCHA_site_key" data-callback="capcha_filled" data-expired-callback="capcha_expired"></div>
-          </div>
-
-          <div class="test-actions">
-            <button class="button primary" type="submit" id="submit">Vyhodnotiť test</button>
-            <a class="button secondary" href="index.html#kalendar">Kontaktovať Andreu</a>
-          </div>
-
-          <div class="test-result" id="test-result" aria-live="polite"></div>
-        </form>
+          </form>
+        </div>
       </div>
     </section>
   </main>

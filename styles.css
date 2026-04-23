@@ -178,8 +178,7 @@ a {
 }
 
 .brand-logo {
-  width: 520px;
-  margin: 0 0 32px;
+  margin: 0 auto 32px auto;
 }
 
 h1,
@@ -533,7 +532,7 @@ blockquote cite {
 }
 
 .test-logo {
-  width: 300px;
+  max-width: 70%;
 }
 
 .level-test {
@@ -562,7 +561,6 @@ blockquote cite {
   border: 0;
   border-top: 1px solid rgba(30, 48, 99, 0.14);
   margin: 0;
-  padding: 22px 0 0;
 }
 
 .test-card fieldset + fieldset {
@@ -784,7 +782,7 @@ blockquote cite {
 
   .brand-logo {
     width: min(320px, 90vw);
-    margin-bottom: 26px;
+    margin-bottom: 0 auto 32px auto;
   }
 
   h1 {
@@ -898,7 +896,8 @@ blockquote cite {
   }
 
   .test-logo {
-    width: min(260px, 88vw);
+    width: 88vw;
+    margin: auto;
   }
 
   .back-link {

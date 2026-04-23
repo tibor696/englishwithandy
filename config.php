@@ -17,4 +17,7 @@ return [
     // test urovne
     'subject_test' => "Test úrovne", // predmet mailu
     'test_file' => "test1.json",
+
+    //reCaptcha
+    'reCaptchaApiKey' => "123123123123123",
 ];
