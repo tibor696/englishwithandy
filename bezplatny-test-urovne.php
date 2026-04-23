@@ -52,10 +52,10 @@
                   echo('<legend>'. $i + 1 . '. ' . $test->otazky[$i]->otazka . '</legend>');
                   
                   for ($j = 0; $j <= count($test->otazky[$i]->odpovede) - 1; $j++) {
-                    echo('<label><input type="radio" name="q' . $i . '" value="' . $test->otazky[$i]->odpovede[$j]->spravna . '"');
+                    echo('<label><input type="radio" name="q' . $i . '" value="' . $j . '"');
                     
-                    // if($j == 0)
-                    //   echo('required');
+                    if($j == 0)
+                       echo('required');
                     
                     echo('> ' . $test->otazky[$i]->odpovede[$j]->odpoved . '</label>');
                   }
@@ -74,6 +74,11 @@
               echo ("Chyba: " + $error);
             }
           ?>
+
+            <div class="form-field">
+                <label for="contact-name">Meno</label>
+                <input id="contact-name" name="name" type="text" autocomplete="name" required>
+            </div>
 
             <div class="form-field">
                 <label for="contact-email">Email</label>
@@ -121,7 +126,7 @@
 
             Swal.fire({
                     title: data.success ? 'Hotovo!' : 'Chyba!',
-                    text: data.message,
+                    html: data.message,
                     icon: data.success ? 'success' : 'error'
                 });
 

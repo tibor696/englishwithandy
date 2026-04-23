@@ -12,16 +12,42 @@ if(isset($_POST['email'])){
         $string = file_get_contents('./testy/' . $config['test_file']);
         $test = json_decode($string);
         $from = $_POST['email']; // Sender's email
+        $name = $_POST['name']; 
+
+        $test_results = '';
 
         if(!is_null($test)) {
 
             $score = 0;
             $max_score = count($test->otazky);
+
+            $test_results = $test_results . '<ol>';
+
             for ($i = 0; $i <= $max_score - 1 ; $i++) {
                 $q = 'q' . $i;
-                if(isset($_POST[$q]) && $_POST[$q] == 1)
-                    $score++;
+
+                $test_results = $test_results . '<li>' . $test->otazky[$i]->otazka;
+                $test_results = $test_results . '<br/><strong>';
+
+                if(isset($_POST[$q])) {
+
+                    $answer = $test->otazky[$i]->odpovede[$_POST[$q]];
+
+                    if($answer->spravna) {
+                        $score++;
+                        $test_results = $test_results . ' správne ('. $answer->odpoved . ')';
+                    } else {
+                        $test_results = $test_results . ' chyba ('. $answer->odpoved . ')';
+                    }
+                } else {
+                    $test_results = $test_results . ' chýbajuca odpoveď';
+                }
+                
+                $test_results = $test_results . '</strong>';
+                $test_results = $test_results . '</li>';
             }
+
+            $test_results = $test_results . '</ol>';
 
             $level = "A1";
             $message = "Začíname pekne od základov: istota vo vetách, otázkach a každodenných situáciách.";
@@ -41,21 +67,28 @@ if(isset($_POST['email'])){
                 $message = "Vaša úroveň je pokročilejšia. Hodiny môžu cieliť na prirodzenosť, nuansy a sebavedomý prejav.";
             }
 
-            $body = "Orientačný výsledok: " . $level . " " .  $score . "/" . $max_score . " bodov. \n\n" . $message;
+            $body_student = '<strong>Orientačný výsledok: ' . $level . '</strong><div>' .  $score . '/' . $max_score . ' bodov</div><br/><p>' . $message . '</p>';
     
             // send mail to student
-            $result = sendEmail($from, $config['subject_test'], $body, $config['to_email']);
+            $result = sendEmail($from, $config['subject_test'], $body_student, true, $config['to_email']);
 
             // send mail to teacher
             if($result)
-                $result = sendEmail($config['to_email'], $config['subject_test'], $body, $from);
+            {
+                $body_teacher = 'Meno: '. $name . '<br/>';
+                $body_teacher = $body_teacher . 'Email: '. $from . '<br/>';
+                $body_teacher = $body_teacher . 'Výsledky: '. $test_results . '<br/>';
+                $body_teacher = $body_teacher . '<br/>' . $body_student;
+
+                $result = sendEmail($config['to_email'], $config['subject_test'], $body_teacher, true, $from, $name);
+            }
         }
 
         if ($result)
         {
             echo json_encode([
                 "success" => true,
-                "message" => "Email s vysledkom testu vam úspešne odoslaný"
+                "message" => $body_student
             ]);
         } else {
             echo json_encode([

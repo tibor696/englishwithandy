@@ -14,7 +14,7 @@ if(isset($_POST['email'])){
         // Message Body
         $message = $name . " píše:" . "\n\n" . $_POST['message'];
 
-        $result = sendEmail($config['to_email'], $config['subject_contact'], $message, $from, $name);
+        $result = sendEmail($config['to_email'], $config['subject_contact'], $message, false, $from, $name);
         
         if ($result)
         {

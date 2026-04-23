@@ -254,7 +254,7 @@ p + p {
   margin-top: 34px;
 }
 
-.button {
+.button, .swal2-confirm {
   display: inline-flex;
   min-height: 46px;
   align-items: center;
@@ -266,12 +266,21 @@ p + p {
   transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
 }
 
-.button:hover {
+.swal2-confirm {
+  border-width: 2px;
+}
+
+.button:hover, .swal2-confirm:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(9, 28, 83, 0.12);
 }
 
-.primary {
+.swal2-confirm:hover {
+  background: var(--teal);
+  color: white;
+}
+
+.primary, .swal2-confirm {
   background: var(--teal);
   color: white;
 }

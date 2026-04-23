@@ -7,7 +7,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
 
-function sendEmail($email, $subject, $body, $replyToEmail = null, $replyToName = null, $bcc = null) {
+function sendEmail($email, $subject, $body, $isHtml, $replyToEmail = null, $replyToName = null, $bcc = null) {
     $result = true;
 
     try {
@@ -43,7 +43,7 @@ function sendEmail($email, $subject, $body, $replyToEmail = null, $replyToName =
         }
 
         //Content
-        $mail->isHTML(false);                                  //Set email format to HTML
+        $mail->isHTML($isHtml);                                  //Set email format to HTML
         $mail->Subject = $subject;
         $mail->Body    = $body;
         //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';

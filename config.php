@@ -9,7 +9,7 @@ return [
     'sender_email' => "tibortestovaci5@gmail.com", // email a meno odosielatela
     'sender_name' => "English with Andy",
 
-    'to_email' => "kavecansky@gmail.com", // email adresata
+    'to_email' => "englishwithandyba@gmail.com", // email adresata
 
     // kontaktny formular
     'subject_contact' => "Kontaktný formulár", // predmet mailu
