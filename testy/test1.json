@@ -1,0 +1,114 @@
+{
+    "nazov" : "Gramatika a slovná zásoba",
+    "otazky" :
+    [
+        {
+            "otazka" : "She ___ from Canada.",
+            "odpovede":
+            [
+                { "odpoved" : "are", "spravna" : false},
+                { "odpoved" : "is", "spravna" : true},
+                { "odpoved" : "be", "spravna" : false}
+            ]
+        },
+        {
+            "otazka" : " I usually ___ coffee in the morning.",
+            "odpovede":
+            [
+                { "odpoved" : "drink", "spravna" : true},
+                { "odpoved" : "am drinking", "spravna" : false},
+                { "odpoved" : "drinks", "spravna" : false}
+            ]
+        },
+        {
+            "otazka" : "We ___ to London last summer.",
+            "odpovede":
+            [
+                { "odpoved" : "go", "spravna" : false},
+                { "odpoved" : "went", "spravna" : true},
+                { "odpoved" : "have go", "spravna" : false}
+            ]
+        },
+        {
+            "otazka" : "There isn't ___ milk left.",
+            "odpovede":
+            [
+                { "odpoved" : "many", "spravna" : false},
+                { "odpoved" : "much", "spravna" : true},
+                { "odpoved" : "few", "spravna" : false}
+            ]
+        },
+        {
+            "otazka" : "If I had more time, I ___ Spanish.",
+            "odpovede":
+            [
+                { "odpoved" : "learn", "spravna" : false},
+                { "odpoved" : "will learn", "spravna" : false},
+                { "odpoved" : "would learn", "spravna" : true}
+            ]
+        },
+        {
+            "otazka" : "The report ___ by Friday.",
+            "odpovede":
+            [
+                { "odpoved" : "must finish", "spravna" : false},
+                { "odpoved" : "must be finished", "spravna" : true},
+                { "odpoved" : "must finished", "spravna" : false}
+            ]
+        },
+        {
+            "otazka" : " I have lived here ___ 2020.",
+            "odpovede":
+            [
+                { "odpoved" : "since", "spravna" : true},
+                { "odpoved" : "for", "spravna" : false},
+                { "odpoved" : "during", "spravna" : false}
+            ]
+        },
+        {
+            "otazka" : "She suggested ___ earlier.",
+            "odpovede":
+            [
+                { "odpoved" : "to leave", "spravna" : false},
+                { "odpoved" : "leaving", "spravna" : true},
+                { "odpoved" : "leave", "spravna" : false}
+            ]
+        },
+        {
+            "otazka" : "I wish I ___ more confident when speaking.",
+            "odpovede":
+            [
+                { "odpoved" : "am", "spravna" : false},
+                { "odpoved" : "were", "spravna" : true},
+                { "odpoved" : "will be", "spravna" : false}
+            ]
+        },
+        {
+            "otazka" : "The meeting was put ___ until next week.",
+            "odpovede":
+            [
+                { "odpoved" : "out", "spravna" : false},
+                { "odpoved" : "off", "spravna" : true},
+                { "odpoved" : "away", "spravna" : false}
+            ]
+        },
+        {
+            "otazka" : "By the time we arrived, the film ___.",
+            "odpovede":
+            [
+                { "odpoved" : "started", "spravna" : false},
+                { "odpoved" : "has started", "spravna" : false},
+                { "odpoved" : "had started", "spravna" : true}
+            ]
+        },
+        {
+            "otazka" : "The proposal is still ___ review.",
+            "odpovede":
+            [
+                { "odpoved" : "under", "spravna" : true},
+                { "odpoved" : "below", "spravna" : false},
+                { "odpoved" : "beneath", "spravna" : false}
+            ]
+        }
+    ]
+}
