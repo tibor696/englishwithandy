@@ -1,5 +1,6 @@
 <?php
 try {
+    header('Content-Type: text/html; charset=utf-8');
     $config = require 'config.php';
   } catch (Exception $e) {
       $error = $e;
