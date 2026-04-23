@@ -22,6 +22,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
@@ -85,6 +86,9 @@
                 <input id="contact-email" name="email" type="email" autocomplete="email" required>
             </div>
           </div>
+          <div class="form-field">
+              <div class="g-recaptcha" data-sitekey="reCAPTCHA_site_key" data-callback="capcha_filled" data-expired-callback="capcha_expired"></div>
+          </div>
 
           <div class="test-actions">
             <button class="button primary" type="submit" id="submit">Vyhodnotiť test</button>
@@ -102,9 +106,27 @@
     //const result = document.getElementById('test-result');
     const btn = document.getElementById('submit');
 
-    form.addEventListener('submit', function(e) {
-        e.preventDefault(); // zruší reload
+    var capcha_filled = function() {
+        //btn.disabled = false;
+    };
+    var capcha_expired = function() {
+        //btn.disabled = true;
+    };
 
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // zruší reload
+
+      var response = grecaptcha.getResponse();
+
+      if(response.length == 0)
+      {
+          //reCaptcha not verified
+          Swal.fire({
+                      text: 'Prosím potvrďte, že nie ste robot.'
+                  });
+          return false;
+      } else {
+        //reCaptcha verified
         // zablokuj formulár
         btn.disabled = true;
         Swal.fire({
@@ -147,7 +169,9 @@
         .finally(() => {
             // odblokuj formulár
             btn.disabled = false;
+            grecaptcha.reset(); 
         });
+      }
     });
   </script>
 </body>

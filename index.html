@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
@@ -222,7 +223,10 @@
                         <label for="contact-message">Správa</label>
                         <textarea id="contact-message" name="message" rows="6" required></textarea>
                     </div>
-                    <button class="button primary" type="submit" name="submit" id="submit">Odoslať správu</button>
+                    <div class="form-field">
+                        <div class="g-recaptcha" data-sitekey="reCAPTCHA_site_key" data-callback="capcha_filled" data-expired-callback="capcha_expired"></div>
+                    </div>
+                    <button class="button primary" name="submit" id="submit">Odoslať správu</button>
                 </form>
             </div>
         </section>
@@ -250,52 +254,72 @@
         const form = document.getElementById('kontakt-formular');
         const btn = document.getElementById('submit');
 
+        var capcha_filled = function() {
+            //btn.disabled = false;
+        };
+        var capcha_expired = function() {
+            //btn.disabled = true;
+        };
+
         form.addEventListener('submit', function(e) {
             e.preventDefault(); // zruší reload
 
-            // zablokuj formulár
-            btn.disabled = true;
-            Swal.fire({
-                title: 'Odosielam...',
-                allowOutsideClick: false,
-                didOpen: () => {
-                    Swal.showLoading();
-                }
-            });
+            var response = grecaptcha.getResponse();
 
-            const formData = new FormData(this);
-
-            fetch('send.php', {
-                method: 'POST',
-                body: formData
-            })
-            .then(res => res.json())
-            .then(data => {
-
+            if(response.length == 0)
+            {
+                //reCaptcha not verified
                 Swal.fire({
-                        title: data.success ? 'Hotovo!' : 'Chyba!',
-                        text: data.message,
-                        icon: data.success ? 'success' : 'error'
-                    });
-
-                if (data.success) {
-                    form.reset(); // vymaže všetky polia
-                }
-            })
-            .catch((e) => {
-                
-                console.log(e);
-
+                            text: 'Prosím potvrďte, že nie ste robot.'
+                        });
+                return false;
+            } else {
+                //reCaptcha verified
+                // zablokuj formulár
+                btn.disabled = true;
                 Swal.fire({
-                        title: 'Chyba!',
-                        text: 'Chyba pri odosielaní',
-                        icon: 'error'
-                    });
-            })
-            .finally(() => {
-                // odblokuj formulár
-                btn.disabled = false;
-            });
+                    title: 'Odosielam...',
+                    allowOutsideClick: false,
+                    didOpen: () => {
+                        Swal.showLoading();
+                    }
+                });
+
+                const formData = new FormData(this);
+
+                fetch('send.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(res => res.json())
+                .then(data => {
+
+                    Swal.fire({
+                            title: data.success ? 'Hotovo!' : 'Chyba!',
+                            text: data.message,
+                            icon: data.success ? 'success' : 'error'
+                        });
+
+                    if (data.success) {
+                        form.reset(); // vymaže všetky polia
+                    }
+                })
+                .catch((e) => {
+                    
+                    console.log(e);
+
+                    Swal.fire({
+                            title: 'Chyba!',
+                            text: 'Chyba pri odosielaní',
+                            icon: 'error'
+                        });
+                })
+                .finally(() => {
+                    // odblokuj formulár
+                    btn.disabled = false;
+                    grecaptcha.reset(); 
+                });
+            }
         });
     </script>
 </body>
