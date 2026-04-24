@@ -232,6 +232,12 @@ try {
                         <textarea id="contact-message" name="message" rows="6" required></textarea>
                     </div>
                     <div class="form-field">
+                        <label class="legal" for="contact-legal">
+                        <input type="checkbox" id="contact-legal" name="legal" required></input>    
+                        Vaše osobne údaje budú použité výhradne na účely vyriešenia Vášho dopytu a v súlade s podmienkami 
+                            <a href="ochrana-osobnych-udajov.html">Ochrany osobných údajov</a>, s ktorými ste sa oboznámili.</label>
+                    </div>
+                    <div class="form-field">
                         <div class="g-recaptcha" data-sitekey="<?php echo($config['reCaptchaApiKey']);?>" data-callback="capcha_filled" data-expired-callback="capcha_expired"></div>
                     </div>
                     <button class="button primary" name="submit" id="submit">Odoslať správu</button>

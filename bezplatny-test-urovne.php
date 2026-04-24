@@ -77,21 +77,26 @@
               }
             ?>
 
-              <div class="form-field">
-                  <label for="contact-name">Meno</label>
-                  <input id="contact-name" name="name" type="text" autocomplete="name" required>
-              </div>
+            <div class="form-field">
+              <label for="level-test-name">Meno</label>
+              <input id="level-test-name" name="name" type="text" autocomplete="name" required>
+            </div>
 
-              <div class="form-field">
-                  <label for="contact-email">Email</label>
-                  <input id="contact-email" name="email" type="email" autocomplete="email" required>
-              </div>
-            
-              <div class="form-field">
-                  <div class="g-recaptcha" data-sitekey="<?php echo($config['reCaptchaApiKey']);?>" data-callback="capcha_filled" data-expired-callback="capcha_expired"></div>
-              </div>
+            <div class="form-field">
+              <label for="level-test-email">Email</label>
+              <input id="level-test-email" name="email" type="email" autocomplete="email" required>
+            </div>
 
+            <div class="form-field">
+              <label class="legal" for="level-test-legal">
+              <input type="checkbox" id="level-test-legal" name="legal" required></input> 
+                Vaše osobne údaje budú použité výhradne na účely vyriešenia Vášho dopytu a v súlade s podmienkami <a href="ochrana-osobnych-udajov.html">Ochrany osobných údajov</a>, s ktorými ste sa oboznámili.
+              </label>
+            </div>
             
+            <div class="form-field">
+              <div class="g-recaptcha" data-sitekey="<?php echo($config['reCaptchaApiKey']);?>" data-callback="capcha_filled" data-expired-callback="capcha_expired"></div>
+            </div>
 
             <div class="test-actions">
               <button class="button primary" type="submit" id="submit">Vyhodnotiť test</button>

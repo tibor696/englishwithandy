@@ -578,6 +578,14 @@ blockquote cite {
   color: var(--ink);
 }
 
+.test-card label.legal {
+  display: block;
+}
+
+label.legal a {
+  color: var(--teal);
+}
+
 .test-card input {
   accent-color: var(--teal);
   inline-size: 18px;
@@ -656,6 +664,10 @@ blockquote cite {
   font: inherit;
   outline: none;
   transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.form-field input[type='checkbox'] {
+  width: auto;
 }
 
 .form-field textarea {
